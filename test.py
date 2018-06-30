@@ -17,8 +17,8 @@ def main():
     lat = data[:, 1]
     t = np.array([i for i in range(len(data))])
 
-    lat_coefficients, matcov = curve_fit(func, t, lat)
-    lon_coefficients, matcov = curve_fit(func, t, lon)
+    lat_coefficients, _ = curve_fit(func, t, lat)
+    lon_coefficients, _ = curve_fit(func, t, lon)
 
     lat_adj = func(t, *lat_coefficients)
     lon_adj = func(t, *lon_coefficients)
